@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MailTask dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="dashboard">
+    <header class="topbar"><a class="brand-row" href="dashboard.html"><div class="brand-mark">M</div><div><h1>MailTask</h1><p>Your email, translated into action</p></div></a><button id="new-list" class="button primary">＋ New list</button></header>
+    <section id="create-panel" class="panel create-panel hidden">
+      <div class="section-heading"><div><h2>Create from Gmail</h2><p class="muted">Select a time range and any Gmail search filters.</p></div><button id="close-create" class="icon-button" aria-label="Close">×</button></div>
+      <div class="filter-grid">
+        <label>Time range<select id="range"><option value="newer_than:7d">Past week</option><option value="newer_than:30d" selected>Past month</option><option value="newer_than:90d">Past 3 months</option><option value="after:">Choose start date…</option></select></label>
+        <label id="date-wrap" class="hidden">Since<input id="since" type="date"></label>
+        <label>Message filters<select id="filter"><option value="">All messages</option><option value="is:unread">Unread</option><option value="is:starred">Starred</option><option value="is:important">Important</option><option value="has:attachment">With attachments</option></select></label>
+        <label>Maximum emails<select id="limit"><option value="10">10 emails (quick)</option><option value="25" selected>25 emails (recommended)</option><option value="50">50 emails</option><option value="100">100 emails (slow)</option></select></label>
+        <label>Search query (optional)<input id="custom-query" type="text" placeholder="e.g. from:team@example.com"></label>
+      </div>
+      <div class="create-actions"><span class="muted small">Quick notes: Smaller limits finish faster. Stay on this page when the AI is parsing to ensure completion.</span><button id="generate" class="button primary">Generate to-dos</button></div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+    <section class="list-heading"><div><p class="eyebrow">YOUR WORKSPACE</p><h2>To-do list <span id="task-count" class="count-pill">0</span></h2></div><div class="list-actions"><button id="copy-list" class="button secondary">Copy list</button><button id="print-list" class="button secondary">Export PDF</button></div></section>
+    <section id="tasks" class="task-list" aria-live="polite"></section>
+    <div id="empty-state" class="panel empty-state"><div class="empty-icon">✳</div><h3>Your next steps, in one place</h3><p>Create a list from Gmail. Tasks and checkmarks are saved automatically on this device.</p><button id="empty-create" class="button primary">Create your first list</button></div>
+    <footer class="footer-note">Saved locally in this browser · Emails are read-only</footer>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
