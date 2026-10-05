@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "MailTask — Gmail to-do list",
+  "version": "1.0.0",
+  "description": "Turn selected Gmail messages into a saved, editable to-do list.",
+  "action": {
+    "default_title": "Create a to-do list from Gmail",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["identity", "storage"],
+  "host_permissions": [
+    "https://gmail.googleapis.com/*",
+    "https://integrate.api.nvidia.com/*"
+  ],
+  "oauth2": {
+    "client_id": "856602880474-ajhoq1vpr01lf1naq7ntupd80mv8dii4.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  }
+}
