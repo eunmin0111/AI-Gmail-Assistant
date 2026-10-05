@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MailTask</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="popup-page">
+  <main class="popup-shell">
+    <header class="brand-row"><div class="brand-mark">M</div><div><h1>MailTask</h1><p>Gmail → clear next steps</p></div></header>
+    <section class="panel compact-panel">
+      <h2>Make a to-do list</h2>
+      <p class="muted">Choose which Gmail messages to scan.</p>
+      <label>Time range<select id="range"><option value="newer_than:7d">Past week</option><option value="newer_than:30d" selected>Past month</option><option value="newer_than:90d">Past 3 months</option><option value="after:">Choose start date…</option></select></label>
+      <label id="date-wrap" class="hidden">Since<input id="since" type="date"></label>
+      <label>Message filters<select id="filter"><option value="">All messages</option><option value="is:unread">Unread</option><option value="is:starred">Starred</option><option value="is:important">Important</option><option value="has:attachment">With attachments</option></select></label>
+      <label>Maximum emails<select id="limit"><option value="10">10 emails (quick)</option><option value="25" selected>25 emails (recommended)</option><option value="50">50 emails</option><option value="100">100 emails (slow)</option></select></label>
+      <label>Search query (optional)<input id="custom-query" type="text" placeholder="e.g. from:team@example.com"></label>
+      <button id="generate" class="button primary full-width">Generate to-dos</button>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+    <button id="open-dashboard" class="button secondary full-width">Open full dashboard</button>
+    <p class="privacy-note">Messages are read-only and processed in this extension.</p>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
